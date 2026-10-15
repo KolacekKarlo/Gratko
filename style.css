@@ -1,0 +1,298 @@
+/* ============================================================
+   GRATKO - zajednicki stilovi za sve stranice
+   Paleta: zuta i tamno smedja s vizitke, uz tople neutralne
+   tonove inspirirane kombinacijama Sanza Wade.
+   ============================================================ */
+
+:root {
+  --krema:         #F6EFDD;  /* pozadina stranice */
+  --krema-tamna:   #EADFC1;  /* kartice i naglasci */
+  --zuta:          #F2B90F;  /* zuta s vizitke */
+  --zuta-svijetla: #F8D460;
+  --smeda:         #2B1409;  /* tamno smedja s vizitke */
+  --smeda-meka:    #5A3B26;  /* sekundarni tekst */
+
+  --radijus: 14px;
+  --razmak: clamp(3.5rem, 8vw, 6rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+
+body {
+  margin: 0;
+  background: var(--krema);
+  color: var(--smeda);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--smeda); outline-offset: 3px; }
+
+.okvir { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+
+.preskoci {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--smeda); color: var(--krema); padding: .75rem 1rem;
+}
+.preskoci:focus { left: 0; }
+
+/* ---------------- Zaglavlje ---------------- */
+.zaglavlje {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--krema);
+  border-bottom: 1px solid var(--krema-tamna);
+}
+.zaglavlje-red {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: .5rem 1.25rem; padding-block: .75rem;
+}
+.logo {
+  font-weight: 900; font-style: italic; font-size: 1.6rem;
+  letter-spacing: .02em; text-decoration: none; line-height: 1;
+}
+.izbornik { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-left: auto; }
+.izbornik a {
+  text-decoration: none; font-weight: 600;
+  padding: .25rem 0; border-bottom: 3px solid transparent;
+}
+.izbornik a:hover { border-bottom-color: var(--zuta); }
+.izbornik a.aktivno { border-bottom-color: var(--smeda); }
+
+/* ---------------- Gumbi ---------------- */
+.gumb {
+  display: inline-block; padding: 1rem 1.75rem;
+  border-radius: 999px; font: inherit; font-weight: 700; font-size: 1.1rem;
+  text-decoration: none; text-align: center; cursor: pointer;
+  border: 2px solid var(--smeda);
+  transition: transform .15s ease, background .15s ease, color .15s ease;
+}
+.gumb:hover { transform: translateY(-2px); }
+.gumb-tamni { background: var(--smeda); color: var(--zuta); }
+.gumb-tamni:hover { background: #3d1e0f; }
+.gumb-svijetli { background: transparent; color: var(--smeda); }
+.gumb-svijetli:hover { background: rgba(43, 20, 9, .08); }
+.gumb-zuti { background: var(--zuta); color: var(--smeda); border-color: var(--zuta); }
+.gumb-zuti:hover { background: var(--zuta-svijetla); border-color: var(--zuta-svijetla); }
+.gumb-mali { padding: .55rem 1.2rem; font-size: 1rem; }
+.gumb.kopirano { background: var(--smeda); color: var(--zuta); }
+
+/* ---------------- Naslovnica (hero) ---------------- */
+.naslovnica {
+  position: relative; overflow: hidden;
+  background: var(--zuta);
+  padding-block: clamp(3rem, 9vw, 6rem);
+}
+.naslovnica-bager {
+  position: absolute; right: 3%; bottom: 6%;
+  width: min(36%, 430px); opacity: .16; pointer-events: none;
+}
+/* Okvir ostaje centriran, a tekst unutra ide u citljivu sirinu. */
+.naslovnica-sadrzaj { position: relative; z-index: 1; }
+.naslovnica-sadrzaj > * { max-width: 40rem; }
+
+.nadnaslov {
+  margin: 0 0 .25rem; font-weight: 700; font-size: .95rem;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.naslovnica h1 {
+  margin: 0; font-size: clamp(3.2rem, 13vw, 7.5rem);
+  line-height: 1; font-weight: 900; font-style: italic; letter-spacing: -.01em;
+}
+.slogan {
+  margin: .5rem 0 0; font-size: clamp(1.1rem, 3vw, 1.55rem);
+  font-weight: 800; font-style: italic;
+  text-transform: uppercase; letter-spacing: .03em;
+}
+.uvod { max-width: 34rem; margin: 1.5rem 0 0; font-size: 1.2rem; }
+
+/* Gumbi u hero dijelu, s rucno crtanom strelicom prema "Nazovi" */
+.gumbi { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 5rem; }
+.nazovi-okvir { position: relative; display: inline-block; }
+.strelica {
+  position: absolute; bottom: calc(100% + 4px); left: 6%;
+  width: clamp(90px, 22vw, 125px); height: auto;
+  color: var(--smeda); pointer-events: none;
+}
+
+/* ---------------- Odjeljci ---------------- */
+.odjeljak { padding-block: var(--razmak); }
+.odjeljak h2 {
+  margin: 0; font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.15; font-weight: 800;
+}
+.podnaslov { margin: .4rem 0 2.5rem; color: var(--smeda-meka); max-width: 46rem; }
+.odjeljak-tamni { background: var(--smeda); color: var(--krema); }
+.odjeljak-tamni .podnaslov { color: var(--zuta-svijetla); }
+.odjeljak-zuti { background: var(--zuta-svijetla); }
+.odjeljak-zuti .podnaslov { color: var(--smeda); }
+.odjeljak-krema { background: var(--krema-tamna); }
+
+.zaglavlje-stranice { background: var(--zuta); padding-block: clamp(2.5rem, 7vw, 4rem); }
+.zaglavlje-stranice h1 {
+  margin: 0; font-size: clamp(2.4rem, 7vw, 4rem);
+  font-weight: 900; font-style: italic; line-height: 1.05;
+}
+.zaglavlje-stranice p { margin: .5rem 0 0; max-width: 42rem; font-size: 1.15rem; }
+
+.dno-odjeljka { margin-top: 2.5rem; }
+
+/* ---------------- Naglasci usluga (naslovnica) ---------------- */
+.naglasci {
+  display: grid; gap: 1rem; list-style: none; margin: 0; padding: 0;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+.naglasci a {
+  display: flex; align-items: center; height: 100%;
+  padding: 1.6rem 1.5rem; text-decoration: none;
+  background: var(--krema-tamna); border-radius: var(--radijus);
+  border-left: 10px solid var(--zuta);
+  font-size: 1.2rem; font-weight: 700; line-height: 1.3;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.naglasci a:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(43,20,9,.14); }
+
+/* ---------------- Podrucje rada ---------------- */
+.mjesta {
+  display: flex; flex-wrap: wrap; gap: .7rem;
+  list-style: none; margin: 0; padding: 0;
+}
+.mjesta li {
+  padding: .6rem 1.2rem; border-radius: 999px;
+  background: var(--krema-tamna); border: 2px solid var(--zuta);
+  font-weight: 700; font-size: 1.05rem;
+}
+
+/* ---------------- Usluge, detaljno ---------------- */
+.usluga {
+  display: grid; gap: clamp(1.5rem, 4vw, 3rem); align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  border-top: 2px solid var(--krema-tamna);
+}
+.usluga:first-of-type { border-top: 0; }
+.usluga h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin: 0 0 .75rem; }
+.usluga p { margin: 0 0 1rem; }
+.usluga ul { margin: 0; padding-left: 1.3rem; color: var(--smeda-meka); }
+.usluga li { margin-bottom: .35rem; }
+.usluga img { border-radius: var(--radijus); width: 100%; }
+.usluga-obrnuto .usluga-slika { order: 1; }
+
+/* ---------------- Oprema ---------------- */
+.oprema-mreza {
+  display: grid; gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+.oprema-kartica {
+  background: var(--krema); border-radius: var(--radijus);
+  overflow: hidden; display: flex; flex-direction: column;
+  border: 2px solid var(--krema-tamna);
+}
+.odjeljak-krema .oprema-kartica { border-color: #ddcda4; }
+.oprema-kartica img { width: 100%; }
+.oprema-tekst { padding: 1.4rem 1.6rem 1.75rem; }
+.oprema-kartica h2, .oprema-kartica h3 { margin: 0 0 .5rem; font-size: 1.4rem; line-height: 1.25; }
+.oprema-kartica p { margin: 0; color: var(--smeda-meka); }
+
+/* ---------------- Galerija ---------------- */
+.galerija {
+  display: grid; gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.galerija figure { margin: 0; }
+/* height:auto mora ostati: bez njega HTML atribut height="..." na slici
+   nadjaca aspect-ratio i slika se ne reze na 4:3. */
+.galerija img, .mjesto-za-sliku {
+  width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+  border-radius: var(--radijus);
+}
+.mjesto-za-sliku {
+  display: grid; place-items: center; text-align: center; padding: 1rem;
+  background: repeating-linear-gradient(135deg, var(--krema-tamna) 0 18px, #e3d6b3 18px 36px);
+  color: var(--smeda-meka); font-weight: 600;
+}
+.galerija figcaption { margin-top: .75rem; color: var(--smeda-meka); }
+.galerija figcaption strong { display: block; color: var(--smeda); font-size: 1.1rem; }
+
+/* ---------------- Kontakt ---------------- */
+.kontakt-mreza {
+  display: grid; gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+}
+.kontakt-kartica {
+  background: var(--krema-tamna); border-radius: var(--radijus);
+  border-top: 8px solid var(--zuta);
+  padding: 1.6rem 1.75rem 1.75rem; display: flex; flex-direction: column;
+}
+.kontakt-oznaka {
+  display: block; font-size: .85rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--smeda-meka);
+}
+.kontakt-vrijednost {
+  display: block; margin: .4rem 0 1.25rem;
+  font-size: clamp(1.15rem, 2.4vw, 1.4rem); font-weight: 800;
+  line-height: 1.25; overflow-wrap: break-word;
+}
+.kontakt-vrijednost a { text-decoration: none; }
+.kontakt-vrijednost a:hover { text-decoration: underline; }
+/* Gumbi idu jedan ispod drugog u svim karticama: jednako izgleda
+   u sve tri kartice i lakse se pogada prstom na mobitelu. */
+.kontakt-gumbi {
+  display: flex; flex-direction: column; align-items: stretch;
+  gap: .6rem; margin-top: auto;
+}
+.kontakt-gumbi .gumb { padding: .8rem 1.3rem; font-size: 1rem; }
+
+.karta {
+  margin-top: 2rem; border-radius: var(--radijus); overflow: hidden;
+  border: 2px solid var(--smeda); background: var(--krema-tamna);
+}
+.karta iframe { display: block; width: 100%; height: clamp(300px, 48vw, 460px); border: 0; }
+
+/* Kratki kontakt na naslovnici */
+.kontakt-sazetak {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-bottom: 2.5rem;
+}
+.kontakt-sazetak a {
+  display: block; padding: 1.4rem 1.6rem; text-decoration: none;
+  background: var(--krema); border-radius: var(--radijus);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.kontakt-sazetak a:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(43,20,9,.15); }
+.kontakt-sazetak .kontakt-vrijednost { margin-bottom: 0; font-size: 1.3rem; }
+
+/* ---------------- Podnozje ---------------- */
+.podnozje { background: var(--smeda); color: var(--krema); padding-block: 2.5rem; }
+.podnozje-red {
+  display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; justify-content: space-between;
+}
+.podnozje p { margin: 0 0 .25rem; }
+.podnozje a { color: var(--zuta-svijetla); }
+.podnozje .sitno { margin-top: 1rem; font-size: .9rem; opacity: .7; }
+.podnozje-izbornik { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.podnozje-izbornik a { text-decoration: none; font-weight: 600; }
+.podnozje-izbornik a:hover { text-decoration: underline; }
+
+/* ---------------- Manji ekrani ---------------- */
+@media (max-width: 760px) {
+  .zaglavlje-red { gap: .4rem .9rem; }
+  .logo { font-size: 1.4rem; }
+  .izbornik { order: 3; width: 100%; margin-left: 0; gap: .25rem .85rem; font-size: .95rem; }
+  .naslovnica-bager { display: none; }
+  .gumbi { margin-top: 4.5rem; }
+  .gumbi .gumb, .nazovi-okvir { width: 100%; }
+  body { font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .gumb, .kontakt-sazetak a, .naglasci a { transition: none; }
+}
