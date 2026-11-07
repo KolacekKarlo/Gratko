@@ -296,3 +296,7 @@ a { color: inherit; }
   html { scroll-behavior: auto; }
   .gumb, .kontakt-sazetak a, .naglasci a { transition: none; }
 }
+
+/* ---------------- Galerija po skupinama ---------------- */
+.skupina + .skupina { margin-top: clamp(3rem, 7vw, 4.5rem); }
+.skupina h2 { margin-bottom: 1.25rem; font-size: clamp(1.6rem, 4vw, 2.1rem); }

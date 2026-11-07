@@ -1,0 +1,21 @@
+# Instalacije, dokumenti i arhive ne idu na stranicu
+*.exe
+*.msi
+*.zip
+*.rar
+*.7z
+*.xlsx
+*.xls
+*.docx
+*.pdf
+*.mp4
+*.mov
+
+# Originalne fotografije s mobitela (na stranici su obradjene .jpg verzije)
+*.jpeg
+*.HEIC
+
+# Sistemske datoteke
+Thumbs.db
+desktop.ini
+.DS_Store
